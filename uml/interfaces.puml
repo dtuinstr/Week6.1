@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'Make public/private/etc show up as character rather than colored circle.
+skinparam classAttributeIconSize 0
+
+interface Cipher {
+    encrypt(clearText : String) : String
+    decrypt(clearText : String) : String
+}
+
+abstract class SymmetricCipher {
+    +SymmetricCipher(key : Object)
+    +SymmetricCipher(key : Object, alphabet : String)
+    +getAlphabet() : String
+}
+
+class CaesarCipher {
+    +CaesarCipher(key : Integer)
+    +CaesarCipher(key : Integer, alphabet : String)
+}
+
+Cipher <|.. SymmetricCipher
+SymmetricCipher <|-- CaesarCipher
+
+@enduml

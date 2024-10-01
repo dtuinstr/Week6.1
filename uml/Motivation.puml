@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'Make public/private/etc show up as character rather than colored circle.
+skinparam classAttributeIconSize 0
+
+abstract class Animal {
+    +getFavoriteFood()
+}
+
+abstract class Vehicle {
+    +getSpeed()
+}
+
+abstract class SkyThing {
+    +getAltitude()
+}
+
+class Dog
+Animal <|-- Dog
+
+class Bus
+Vehicle <|-- Bus
+
+class Cloud
+SkyThing <|-- Cloud
+
+class Bird
+
+@enduml
