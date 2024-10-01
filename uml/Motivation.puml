@@ -4,27 +4,36 @@
 'Make public/private/etc show up as character rather than colored circle.
 skinparam classAttributeIconSize 0
 
-abstract class Animal {
-    +getFavoriteFood()
+abstract class AbstractAnimal {
+    + AbstractAnimal()
+    + {abstract} eat()
+    + {abstract} methodA1()
+    + methodA2()
 }
 
-abstract class Vehicle {
-    +getSpeed()
+abstract class AbstractSkyThing {
+    + AbstractSkyThing()
+    + {abstract} setAltitude()
+    + methodST1()
+    + methodST2()
 }
 
-abstract class SkyThing {
-    +getAltitude()
+class Dog {
+    +Dog()
+    +eat()
+    +methodA1()
 }
+AbstractAnimal <|-- Dog
 
-class Dog
-Animal <|-- Dog
+class Cloud {
+    + Cloud()
+    + setAltitude()
+}
+AbstractSkyThing <|-- Cloud
 
-class Bus
-Vehicle <|-- Bus
-
-class Cloud
-SkyThing <|-- Cloud
-
-class Bird
+class Bird {
+    +eat()
+    +setAltitude()
+}
 
 @enduml

@@ -5,8 +5,8 @@
 skinparam classAttributeIconSize 0
 
 interface Cipher {
-    encrypt(clearText : String) : String
-    decrypt(clearText : String) : String
+    {abstract} encrypt(clearText : String) : String
+    {abstract} decrypt(cipherText : String) : String
 }
 
 abstract class SymmetricCipher {

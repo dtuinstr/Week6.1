@@ -1,0 +1,64 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'Make public/private/etc show up as character rather than colored circle.
+skinparam classAttributeIconSize 0
+
+interface Animal {
+    + {abstract} eat()
+    + {abstract} methodA1()
+    + <<default>> methodA2()
+}
+
+interface SkyThing {
+    + {abstract} setAltitude()
+    + <<default>> methodST1()
+    + <<default>> methodST2()
+}
+
+abstract class AbstractAnimal {
+    + AbstractAnimal()
+    + {abstract} eat()
+    + methodA1()
+}
+
+abstract class AbstractSkyThing {
+    + AbstractSkyThing()
+    + {abstract} setAltitude()
+}
+
+Animal <|.. AbstractAnimal
+SkyThing <|.. AbstractSkyThing
+
+class Dog {
+    + Dog()
+    + eat()
+}
+AbstractAnimal <|-- Dog
+
+class Cloud {
+    + Cloud()
+    + setAltitude()
+    + <<override>> methodST2()
+}
+AbstractSkyThing <|-- Cloud
+
+class Bird {
+    + Bird()
+    + eat()
+    + methodA1()
+    + setAltitude()
+    + methodST1()
+}
+Animal <|.. Bird
+SkyThing <|.. Bird
+
+class BirdAlternate {
+    +BirdAlternate()
+    +eat()
+    +setAltitude()
+}
+AbstractAnimal <|-- BirdAlternate
+SkyThing <|.. BirdAlternate
+
+@enduml

@@ -1,55 +1,34 @@
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
-//        JOptionPane.showMessageDialog(null, "Aloha, World!");
+        JOptionPane.showMessageDialog(
+                null,
+                "Aloha, World!");
 
-//        JOptionPane.showMessageDialog(null,
+//        JOptionPane.showMessageDialog(
+//                null,
 //                "Hello, World!",
-//                "Dialog Title",
-//                JOptionPane.INFORMATION_MESSAGE,
-//                //new ImageIcon("images/globe.gif")
-//                new MarsIcon(50));
+//                "Hello Message",
+//                JOptionPane.WARNING_MESSAGE,
+//                new ImageIcon("images/globe.gif")
+//                //new MarsIcon(75)
+//        );
 
-        JFrame frame = new JFrame();
-        frame.setTitle("Hello / Goodbye");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new FlowLayout());
-        frame.setLocation(500, 500);
-
-        final int FIELD_WIDTH = 20;
-        final JTextField textField = new JTextField(FIELD_WIDTH);
-        textField.setText("Click a button");
-
-        JButton helloButton = new JButton("Say Hello");
-        helloButton.addActionListener(
-                createButtonTextFieldUpdater("Hello, World!",
-                        textField)
-        );
-
-        JButton goodbyeButton = new JButton("Say Goodbye");
-        goodbyeButton.addActionListener(
-                createButtonTextFieldUpdater("Goodbye, World!",
-                        textField)
-        );
-
-        frame.add(helloButton);
-        frame.add(goodbyeButton);
-        frame.add(textField);
-
-        frame.pack();
-        frame.setVisible(true);
+//        countryTester();
     }
 
-    public static ActionListener createButtonTextFieldUpdater(
-            String message, JTextField textField) {
-        return new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                textField.setText(message);
-            }
-        };
+    public static void countryTester()    {
+        ArrayList<Country> countries = new ArrayList<>();
+        countries.add(new Country("Uruguay", 176220));
+        countries.add(new Country("Thailand", 514000));
+        countries.add(new Country("Belgium", 30510));
+
+        Collections.sort(countries);
+        // Now the array list is sorted by area
+        for (Country c : countries)
+            System.out.println(c.getName() + " " + c.getArea());
     }
 }
