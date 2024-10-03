@@ -47,6 +47,10 @@ public class Country implements Comparable<Country>
         return 0;
     }
 
+    public String toString() {
+        return String.format("%-8s %8.0f", name ,area);
+    }
+
     private String name;
     private double area;
 }
